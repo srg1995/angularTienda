@@ -1,0 +1,71 @@
+<h2 class="">
+    ALMACEN DE PRODUCTOS
+</h2>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <mat-icon>shopping_cart</mat-icon>total:
+            </mat-panel-title>
+            <mat-panel-description>
+                {{factura}}&euro;
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <table>
+            <tr>
+                <th>producto</th>
+                <th>Cantidad</th>
+                <th>precio/unidad</th>
+            </tr>
+            <tr *ngFor="let pro of carrito">
+                <td>
+
+                    <img src="{{pro.imagen}}" alt="">
+                </td>
+
+                <td>
+
+                    x{{pro.cantidad}}
+                </td>
+
+                <td>
+
+                    {{pro.precio}}&euro;/unidad
+                </td>
+
+                <td>
+                    <button mat-icon-button color="warn" (click)="eliminarDelCarro(pro)"><mat-icon>remove_shopping_cart</mat-icon></button>
+                </td>
+            </tr>
+            <tr>
+                <th class="separacion" colspan="3"></th>
+            </tr>
+            <tr>
+                <th>TOTAL:</th>
+                <th></th>
+                <th>{{factura}}&euro;</th>
+            </tr>
+
+        </table>
+    </mat-expansion-panel>
+</mat-accordion>
+
+
+
+<div class="almacen">
+    <div class="articulo" *ngFor="let articulo of almacen">
+        <p class="nombre"><b>Producto:</b>{{ articulo.nombre }} </p>
+        <p class="tipo"><b>Tipo:</b>{{ articulo.tipo }}</p>
+        <p class="precio"><b>Precio:</b>{{ articulo.precio }}&euro;</p>
+        <p class="existencias" [ngClass]="{'naranja' : articulo.stock > 10 && articulo.stock < 15, 'rojo' : articulo.stock <= 10}"><b>Stock:</b>{{ articulo.stock }}</p>
+        <p><img src="{{articulo.imagen}}" alt=""></p>
+        <button mat-icon-button color="primary" (click)='anadirAlCarro(articulo)' [disabled]="articulo.stock <= 0"><mat-icon>add_shopping_cart</mat-icon></button>
+    </div>
+</div>
+
+<button mat-button (click)="openDialog()">
+
+     
+</button>
+
+<mat-icon>home</mat-icon>
