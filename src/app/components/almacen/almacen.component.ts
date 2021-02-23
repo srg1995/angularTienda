@@ -104,7 +104,9 @@ export class AlmacenComponent implements OnInit {
 		  console.log(`Dialog result: ${result}`);
 		});
 	  }
-
+	  public irArticuloDetalle(id){
+		console.log(id);
+	  }
 }
 
 

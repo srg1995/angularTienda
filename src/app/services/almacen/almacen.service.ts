@@ -54,6 +54,15 @@ export class AlmacenService {
       map((data: Articulo[]) => data.slice(0,10))
     )
   }
+  
+  public getArticleAlmacenBBDD(id): Observable<any>{
+    let url = "https://almacenbbdd.herokuapp.com/almacen/consultarPorId"
+    let json = JSON.stringify({"id":id});
+    console.log(json)
+    let headers = new HttpHeaders({'Content-Type':'application/json'} );
+
+    return this._http.post(url, json, {headers: headers});
+  }
 
   public updateBBDD(articulo: Articulo): Observable<any>{
     let url = "https://almacenbbdd.herokuapp.com/almacen/actualizar"

@@ -1,0 +1,13 @@
+<h1>ARTICULO</h1>
+
+
+<ng-container *ngIf="articulo != undefined; else cargando">
+    <br>{{articulo.id}}
+    <br>{{articulo.nombre}}
+    <br>{{articulo.tipo}}
+</ng-container>
+
+
+<ng-template #cargando>
+    <app-loader></app-loader>
+</ng-template>

@@ -16,11 +16,24 @@ import { ModalFacturaComponent } from './components/modal-factura/modal-factura.
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ArticuloComponent } from './components/articulo/articulo.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { MenuComponent } from './components/menu/menu.component';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { HomeComponent } from './components/home/home.component';
+
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoaderComponent } from './components/loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent, 
-    AlmacenComponent, ModalFacturaComponent,
+    AlmacenComponent, ModalFacturaComponent, ArticuloComponent, AdminComponent, MenuComponent, MenuLateralComponent, HomeComponent, LoaderComponent,
     
   ],
   imports: [
@@ -32,7 +45,17 @@ import {MatExpansionModule} from '@angular/material/expansion';
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatProgressSpinnerModule
+  ],
+  exports:[
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
